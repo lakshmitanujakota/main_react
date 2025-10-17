@@ -1,0 +1,23 @@
+{
+  "name": "react-tanu",
+  "version": "1.0.0",
+  "description": "React",
+  "homepage": "https://github.com/lakshmitanujakota/main_react#readme",
+  "bugs": {
+    "url": "https://github.com/lakshmitanujakota/main_react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshmitanujakota/main_react.git"
+  },
+  "license": "ISC",
+  "author": "Lakshmi Tanuja",
+  "type": "commonjs",
+  "main": "index.html",
+  "scripts": {
+    "test": "run"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  }
+}
