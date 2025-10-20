@@ -1,0 +1,119 @@
+/* === Global Styles === */
+.body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* === Header Section === */
+.header {
+  display: flex;                  /* place logo + nav items in one line */
+  justify-content: space-between; /* logo on left, menu on right */
+  align-items: center;            /* vertically center items */
+  padding: 10px 40px;             /* some spacing around header */
+  background-color: #fff;         /* clean white background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* soft shadow */
+}
+
+/* === Logo === */
+.App-logo img {
+  height: 140px;
+  width: 160px;
+  border-radius: 8px;
+}
+
+/* === Navigation Items === */
+.header > ul {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;                      /* spacing between list items */
+}
+
+.header > li {
+  cursor: pointer;
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+/*
+.res-card {
+  width: 220px;
+  background: #f8f5f5fa;
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 10px;
+  
+}
+
+.res-image {
+  height: 200px;
+  width: 200px; 
+}
+
+.res-container{
+  display: flex;
+}
+
+.res-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+  */
+
+  /* === Main Restaurant Container === */
+.res-container {
+  display: flex;
+  flex-direction: column; /* Stack search on top, cards below */
+  padding: 30px;
+  background-color: #f9fafb;
+}
+
+/* === Search Section === */
+.res-filter {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+
+/* === Restaurant Cards Grid === */
+.res-cards {
+  display: flex;
+  flex-wrap: wrap;        /* allows cards to move to next line */
+  justify-content: flex-start; /* 👈 aligns all cards to the left */
+  gap: 20px;
+  padding-left: 40px;     /* optional: little left padding for spacing */
+}
+
+.res-card {
+  width: 220px;           /* fixed width so wrapping works properly */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  
+}
+
+.res-card:hover {
+  transform: scale(1.05);
+}
+
+.res-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.res-card >h3 {
+  margin: 10px 10px 4px;
+  font-size: 18px;
+  color: #333;
+}
+
+.res-card>h4 {
+  margin: 0 10px 10px;
+  font-size: 14px;
+  color: #666;
+}
