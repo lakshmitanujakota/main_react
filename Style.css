@@ -2,6 +2,8 @@
 .body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #fafafa;
+
 }
 
 /* === Header Section === */
@@ -116,4 +118,44 @@
   margin: 0 10px 10px;
   font-size: 14px;
   color: #666;
+}
+
+/* Container holding all shimmer cards */
+.Shimmering-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: flex-start;
+  padding: 24px;
+  background-color: #fafafa; /* light background like Swiggy */
+}
+
+/* Each shimmer card placeholder */
+.Shimmering-card {
+  width: 220px;
+  height: 260px;
+  border-radius: 16px;
+  background: linear-gradient(
+    100deg,
+    #fafafa 20%,
+    #fafafa 40%,
+    #fafafa 60%
+  );
+  background-size: 200% 100%;
+  animation: shimmerMove 1.2s infinite linear;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Moving shimmer effect */
+@keyframes shimmerMove {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.filter{
+  display : flex;
 }
