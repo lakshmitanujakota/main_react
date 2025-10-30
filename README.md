@@ -64,3 +64,4 @@ Adv
  # 2 types of Routing
  - client side routing
  - server side routing
+
