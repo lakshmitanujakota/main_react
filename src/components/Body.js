@@ -1,6 +1,7 @@
 import RestaurentCard from "./RestaurentCard";
 import { useState, useEffect } from "react";
 import Shimmering from "./Shimmer";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //local state variable : very powerfull variable
@@ -28,7 +29,12 @@ const Body = () => {
     );
   };
 
+  const onlineStatus = useOnlineStatus();
 
+  if(onlineStatus == false)
+  {
+    return <h1>You are offline please check your internet connection!!!</h1>
+  };
 
   return  ListOfRestaurents.length == 0 ?  ( <Shimmering /> ) : (
     <div className="res-container">
