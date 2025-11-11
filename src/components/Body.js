@@ -6,7 +6,7 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Body = () => {
   //local state variable : very powerfull variable
   const [ListOfRestaurents, setListOfRestaurents] = useState([]);
-  
+
   const [filteredRestaurents, setFilteredRestaurents] = useState([]);
   const [searchText, setSearchText] = useState([]);
 
@@ -31,16 +31,17 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
 
-  if(onlineStatus == false)
-  {
-    return <h1>You are offline please check your internet connection!!!</h1>
-  };
+  if (onlineStatus == false) {
+    return <h1>You are offline please check your internet connection!!!</h1>;
+  }
 
-  return  ListOfRestaurents.length == 0 ?  ( <Shimmering /> ) : (
-    <div className="res-container">
-      <div className="filter">
+  return ListOfRestaurents.length == 0 ? (
+    <Shimmering />
+  ) : (
+    <div className="w-full px-6 md:px-12 py-6 md:py-8 bg-gray-50">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 md:space-x-4 space-y-4 md:space-y-0">
         <button
-          className="filter-btn"
+          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300"
           onClick={() => {
             const filteredData = ListOfRestaurents.filter(
               (res) => res.info.avgRating > 4.5
@@ -51,7 +52,7 @@ const Body = () => {
         >
           Filter the Top Rated Restaurent
         </button>
-        <div className="search">
+        <div className="flex items-center space-x-4">
           <input
             type="test"
             className="search-test"
@@ -61,7 +62,7 @@ const Body = () => {
             }}
           ></input>
           <button
-            className="search-btn"
+            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition duration-300"
             onClick={() => {
               const filteredRestaurents = ListOfRestaurents.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -73,7 +74,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="res-cards">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {filteredRestaurents.map((restaurent) => (
           <RestaurentCard key={restaurent.info.id} resData={restaurent} />
         ))}
