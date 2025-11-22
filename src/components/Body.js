@@ -1,7 +1,8 @@
-import RestaurentCard from "./RestaurentCard";
+import RestaurentCard, { withVegCard } from "./RestaurentCard";
 import { useState, useEffect } from "react";
 import Shimmering from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { Link } from "react-router-dom";
 
 const Body = () => {
   //local state variable : very powerfull variable
@@ -9,6 +10,8 @@ const Body = () => {
 
   const [filteredRestaurents, setFilteredRestaurents] = useState([]);
   const [searchText, setSearchText] = useState([]);
+
+  const RestaurentVegCard = withVegCard(RestaurentCard);
 
   useEffect(() => {
     fetchData();
@@ -21,6 +24,7 @@ const Body = () => {
 
     const json = await data.json();
 
+    console.log(json);
     setListOfRestaurents(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -76,7 +80,16 @@ const Body = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {filteredRestaurents.map((restaurent) => (
-          <RestaurentCard key={restaurent.info.id} resData={restaurent} />
+          //<RestaurentCard key={restaurent.info.id} resData={restaurent}/>
+          
+          <Link key={restaurent.info.id}   to={`/restaurant/${restaurent.info.id}`}>
+            {restaurent.info.veg ? (
+              <RestaurentVegCard resData={restaurent} />
+            ) : (
+              <RestaurentCard resData={restaurent} />
+            )}
+          </Link>
+          
         ))}
       </div>
     </div>

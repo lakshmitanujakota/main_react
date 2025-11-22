@@ -1,5 +1,5 @@
 
-export const MOCK_MENUS = {
+ export const MOCK_MENUS = {
   11095: {
     data: {
       cards: [
@@ -29,6 +29,7 @@ export const MOCK_MENUS = {
                   {
                     card: {
                       card: {
+                        ["@type"]: "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory",
                         title: "Recommended",
                         itemCards: [
                           {
@@ -492,3 +493,4 @@ export const MOCK_MENUS = {
     },
   },
 };
+

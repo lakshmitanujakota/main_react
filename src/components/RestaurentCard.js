@@ -1,5 +1,4 @@
 import { CDN_URL } from "../utils/constants";
-import { Link } from "react-router-dom";
 
 const RestaurentCard = (props) => {
   const { resData } = props;
@@ -11,11 +10,11 @@ const RestaurentCard = (props) => {
     avgRating,
     sla: { deliveryTime },
     id,
+    costForTwo,
   } = resData?.info;
 
   return (
     <div className="w-full max-w-xs h-80 flex flex-col bg-white rounded-lg shadow-md hover:shadow-xl overflow-hidden mb-6">
-      <Link to={`/restaurant/${id}`}>
         <img
           className="w-full h-44 object-cover "
           alt=""
@@ -28,12 +27,27 @@ const RestaurentCard = (props) => {
           {cuisines.join(", ")}
         </h4>
         <h4 className="flex justify-between text-sm text-gray-700 font-semibold px-2">
-          {avgRating}{" "}
+          {avgRating}
+        </h4>
+        <h4 className="flex justify-between text-sm text-gray-700 font-semibold px-2">
+          {costForTwo}
         </h4>
         <h4 className="px-2">{deliveryTime} mins</h4>
-      </Link>
     </div>
   );
+};
+
+export const withVegCard = (RestaurentCard)=> {
+ return (props) => {
+  return (
+    <div className="relative">
+      <span className="absolute top-2 left-2  bg-green-600 text-white text-[10px] font-semibold w-8 h-6 flex items-center justify-center rounded-full shadow-md">
+        Veg
+      </span>
+      <RestaurentCard {...props}/>
+    </div>
+  )
+ }
 };
 
 export default RestaurentCard;
